@@ -42,10 +42,22 @@ class Main {
     // in the proper order.
     System.out.println("\nWhat is the model and attributes of your vehicle?");
 
-    String model = input("Name: ");
+    String model;
     int power;
     int weight;
     int speed;
+
+    while (true) {
+      try {
+        model = input("Model: ");
+        if (model.equals("")) {
+          throw new IllegalArgumentException();
+        }
+        break;
+      } catch (IllegalArgumentException e) {
+        System.out.println("You must enter a model. Try again.");
+      }
+    }
 
     System.out.println("\nFor the following attributes, please input an integer in range [0,100].");
     while (true) {
