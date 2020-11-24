@@ -9,7 +9,19 @@ class Main {
 
   public static void main(String[] args) {
     // ask for the users name
-    String username = input("Please enter your name: ");
+    String username;
+    while (true) {
+      try {
+        username = input("Name: ");
+        if (username.equals("")) {
+          throw new IllegalArgumentException();
+        }
+        break;
+      } catch (IllegalArgumentException e) {
+        System.out.println("You must enter your name. Try again.");
+      }
+    }
+
     System.out.println("\nHello, " + username + ". Welcome to the vehicle creator. Here, you can create any vehicle you want! Let's go!");
     // ask which car they would like to create
     System.out.print("\nWhat vehicle would you like to create? Options are:\n1. Sedan\n2. SUV\n3. Semi truck\n(Enter 1, 2, or 3): ");
