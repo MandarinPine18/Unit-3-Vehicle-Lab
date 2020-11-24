@@ -17,7 +17,7 @@ public class Vehicle {
   }
 
   public String toString() {
-    return "You have created a "+ model + " which is " + inDefArtWord(type.toLowerCase()) + " with " + condition + " condition.  It is a " + size + " vehicle.  It has the following characteristics:\nPower: " + power +"\nWeight: " + weight + "\nStealth: " + speed;
+    return "You have created a "+ model + " which is " + inDefArtWord(type.toLowerCase()) + " with " + condition + " condition.  It is a " + size + " vehicle.  It has the following characteristics:\nPower: " + power +"\nWeight: " + weight + "\nSpeed: " + speed;
   }
   
   // this is just to tack on the right indefinite article (a or an) to the word given
