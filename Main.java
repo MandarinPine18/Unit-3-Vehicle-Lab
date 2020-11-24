@@ -146,7 +146,7 @@ class Main {
     try {
       String command = input("> ");
       int numValue;
-      if (command.startsWith("drive")) {
+      if (command.startsWith("drive ")) {
         numValue = Integer.parseInt(command.substring(6));
         checkNum(numValue);
         vehicle.changeCondition(numValue * -1);
@@ -166,7 +166,7 @@ class Main {
     } catch (NumberFormatException e) {
       System.out.println("Try again, make sure if you drive the vehicle, you type an integer in range [0, 100].");
     } catch (IllegalArgumentException e) {
-      System.out.println("Try again, make sure you use \"drive\", \"service\", \"output\", or \"exit\" and follow the first one with in integer in range [0, 100].");
+      System.out.println("Try again, make sure you use \"drive\", \"service\", \"output\", or \"exit\" and follow the first one with in integer in range [0, 100] after a space.");
     }
   }
 
