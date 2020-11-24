@@ -95,7 +95,7 @@ class Main {
       String command = input(">");
       int numValue;
       if (command.startsWith("drive")) {
-        numValue = Integer.parseInt(command.substring(5));
+        numValue = Integer.parseInt(command.substring(6));
         checkNum(numValue);
         vehicle.changeCondition(numValue * -1);
         System.out.println(vehicle.whatCondition());
