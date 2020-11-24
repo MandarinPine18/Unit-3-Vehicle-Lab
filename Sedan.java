@@ -4,6 +4,7 @@ class Sedan extends Vehicle {
     super.type = "Sedan";
   }
 
+  // implemented separately due to direction specifics
   @Override
   public String whatCondition() {
     String status;
@@ -14,6 +15,6 @@ class Sedan extends Vehicle {
     } else {
       status = "bad";
     }
-    return "The " + model + "'s condition is " + status;
+    return "The " + model + "'s condition is " + condition + ", which is " + status + ".";
   }
 }
