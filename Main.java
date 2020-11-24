@@ -1,6 +1,8 @@
 //Name: Ethan Parab
 //Class Period: 5
 
+// quick note in the readme
+
 import java.util.Scanner;
 
 class Main {
@@ -46,10 +48,10 @@ class Main {
       }
     }
 
-    // the GameCharacter class contains a template for all behaviors and attributes for a character. Elf, Warrior, and Wizard are all subclasses of it
+    // the Vehicle class contains a template for all behaviors and attributes for a character. Sedan, SUV, and SemiTruck are all subclasses of it
     Vehicle vehicle;
 
-    //ask user for the name of the character and their attributes
+    //ask user for the name of the vehicle and its attributes
     //make sure to call the correct constructor and apply the variables
     // in the proper order.
     System.out.println("\nWhat is the model and attributes of your vehicle?");
@@ -59,6 +61,7 @@ class Main {
     int weight;
     int speed;
 
+    // model input checking
     while (true) {
       try {
         model = input("Model: ");
@@ -72,16 +75,38 @@ class Main {
     }
 
     System.out.println("\nFor the following attributes, please input an integer in range [0,100].");
+
+    // power input checking
     while (true) {
       try {
         power = checkNum(Integer.parseInt(input("Power: ")));
+        break;
+      } catch (IllegalArgumentException e) {
+        System.out.print("You didn't enter a valid input. It's okay, just try again and make sure you type in an integer in range [0, 100]. \n");
+      }
+    }
+
+    // weight input checking
+    while (true) {
+      try {
         weight = checkNum(Integer.parseInt(input("Weight: ")));
+        break;
+      } catch (IllegalArgumentException e) {
+        System.out.print("You didn't enter a valid input. It's okay, just try again and make sure you type in an integer in range [0, 100]. \n");
+      }
+    }
+
+    // speed input checking
+    while (true) {
+      try {
         speed = checkNum(Integer.parseInt(input("Speed: ")));
         break;
       } catch (IllegalArgumentException e) {
         System.out.print("You didn't enter a valid input. It's okay, just try again and make sure you type in an integer in range [0, 100]. \n");
       }
     }
+
+    // initialize the object based on prior input
     if (carChoice == 1) {
       vehicle = new Sedan(model, power, weight, speed);
     } else if (carChoice == 2) {
@@ -94,9 +119,12 @@ class Main {
       System.exit(1);
     }
 
+    // print out the details of the new vehicle
     System.out.println("\n" + vehicle);
     System.out.println(vehicle.whatCondition() + "\n");
 
+
+    // enter quasi-CLI interface
     System.out.println("Now you can control your vehicle. Acceptable commands are as follows:\n" +
             "\"drive {num}\" - reduces the condition of your car, {num} must be an integer in range [0, 100]\n" +
             "\"service\" - brings car condition to max value\n" +
@@ -128,6 +156,7 @@ class Main {
         System.out.println(vehicle.whatCondition());
       } else if (command.startsWith("output")) {
         System.out.println(vehicle);
+        System.out.println(vehicle.whatCondition());
       } else if (command.startsWith("exit")) {
         System.out.println("Goodbye!");
         System.exit(0);
@@ -137,7 +166,7 @@ class Main {
     } catch (NumberFormatException e) {
       System.out.println("Try again, make sure if you drive the vehicle, you type an integer in range [0, 100].");
     } catch (IllegalArgumentException e) {
-      System.out.println("Try again, make sure you use \"heal\", \"hurt\", \"output\", or \"exit\" and follow the first two with in integer in range [0, 100].");
+      System.out.println("Try again, make sure you use \"drive\", \"service\", \"output\", or \"exit\" and follow the first one with in integer in range [0, 100].");
     }
   }
 

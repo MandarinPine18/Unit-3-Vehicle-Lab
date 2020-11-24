@@ -1,10 +1,10 @@
 public class Vehicle {
-  private String model;
-  private int condition;
-  private int power;
-  private int weight;
-  private int speed;
-  private String size;
+  protected String model;
+  protected int condition;
+  protected int power;
+  protected int weight;
+  protected int speed;
+  protected String size;
   protected String type = "vehicle";   // meant to be changed by subclass
 
   protected Vehicle(String model, int power, int weight, int speed, int condition, String size) {
@@ -37,17 +37,9 @@ public class Vehicle {
     }
   }
 
-  //add howMuchHealth method here.
+  // based on the specific wording of the directions, I left it to the subclasses to implement this method
   public String whatCondition() {
-    String status;
-    if (condition == 100) {
-      status = "perfect";
-    } else if (condition >= 50) {
-      status = "good";
-    } else {
-      status = "bad";
-    }
-    return "The " + model + "'s health is " + status;
+    return "";
   }
 
   public void changeCondition(int change) {
