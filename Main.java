@@ -123,7 +123,7 @@ class Main {
         throw new IllegalArgumentException();
       }
     } catch (NumberFormatException e) {
-      System.out.println("Try again, make sure if you drive the vehicle, you type an integer in range [0, 100].\n");
+      System.out.println("Try again, make sure if you drive the vehicle, you type an integer in range [0, 100].");
     } catch (IllegalArgumentException e) {
       System.out.println("Try again, make sure you use \"heal\", \"hurt\", \"output\", or \"exit\" and follow the first two with in integer in range [0, 100].");
     }
