@@ -126,8 +126,8 @@ class Main {
 
     // enter quasi-CLI interface
     System.out.println("Now you can control your vehicle. Acceptable commands are as follows:\n" +
-            "\"drive {num}\" - reduces the condition of your car, {num} must be an integer in range [0, 100]\n" +
-            "\"service\" - brings car condition to max value\n" +
+            "\"drive {num}\" - decreases the condition of your vehicle, {num} must be an integer in range [0, 100]\n" +
+            "\"repair {num}\" - increases the condition of your vehicle, {num} must be an integer in range [0, 100]\n" +
             "\"output\" - prints the details of the character\n" +
             "\"exit\" - exits the program\n");
     while (true) {
@@ -151,8 +151,10 @@ class Main {
         checkNum(numValue);
         vehicle.changeCondition(numValue * -1);
         System.out.println(vehicle.whatCondition());
-      } else if (command.startsWith("service")) {
-        vehicle.changeCondition(100);
+      } else if (command.startsWith("repair ")) {
+        numValue = Integer.parseInt(command.substring(7));
+        checkNum(numValue);
+        vehicle.changeCondition(numValue);
         System.out.println(vehicle.whatCondition());
       } else if (command.startsWith("output")) {
         System.out.println(vehicle);
@@ -166,7 +168,7 @@ class Main {
     } catch (NumberFormatException e) {
       System.out.println("Try again, make sure if you drive the vehicle, you type an integer in range [0, 100].");
     } catch (IllegalArgumentException e) {
-      System.out.println("Try again, make sure you use \"drive\", \"service\", \"output\", or \"exit\" and follow the first one with in integer in range [0, 100] after a space.");
+      System.out.println("Try again, make sure you use \"drive\", \"repair\", \"output\", or \"exit\" and follow the first two with a space and an integer in range [0, 100].");
     }
   }
 
