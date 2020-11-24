@@ -129,7 +129,8 @@ class Main {
             "\"drive {num}\" - decreases the condition of your vehicle, {num} must be an integer in range [0, 100]\n" +
             "\"repair {num}\" - increases the condition of your vehicle, {num} must be an integer in range [0, 100]\n" +
             "\"output\" - prints the details of the character\n" +
-            "\"exit\" - exits the program\n");
+            "\"exit\" - exits the program\n" +
+            "Note: Condition will stay within range [0, 100]. Attempting to change condition beyond this range will result in the condition value being overridden to the closest value in range [0, 100].\n");
     while (true) {
       command(vehicle);
     }

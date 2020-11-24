@@ -42,6 +42,7 @@ public class Vehicle {
     return "";
   }
 
+  // a getter which deals with overflow from range [0, 100] by overriding the value given
   public void changeCondition(int change) {
     condition +=change;
     if (condition < 0) {
