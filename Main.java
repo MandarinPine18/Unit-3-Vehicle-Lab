@@ -144,7 +144,7 @@ class Main {
 
   private static void command(Vehicle vehicle) {
     try {
-      String command = input(">");
+      String command = input("> ");
       int numValue;
       if (command.startsWith("drive")) {
         numValue = Integer.parseInt(command.substring(6));
